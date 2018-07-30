@@ -33,6 +33,7 @@ class Dog
     sql = <<-SQL
     SELECT * FROM dogs
     WHERE id = ?
+    LIMIT 1
     SQL
     song = DB[:conn].execute(sql, id)[0]
     Dog.new(id: song[0], name: song[1], breed: song[2])
